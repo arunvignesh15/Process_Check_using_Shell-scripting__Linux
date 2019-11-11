@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ps -eo pid,pcpu,pmem,user,args,etime,cmd --sort=start_time | grep unica_acsvr | grep -v grep > ps_sort.txt
+read -p "Enter the Process Name : " process_name
+
+ps -eo pid,pcpu,pmem,user,args,etime,cmd --sort=start_time | grep $process_name | grep -v grep > ps_sort.txt
 
 cat ps_sort.txt | awk 'length($10) >=8' | awk '//{print $10,$15, $19}' > ps_sort_date_final.txt
 
@@ -31,3 +33,4 @@ do
    name=$(basename "$proceess") >> lessthan5hrprocess.txt
   fi  
 done < "$input"
+
