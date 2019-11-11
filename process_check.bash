@@ -45,8 +45,7 @@ then
 	TO_ADDRESS="@gmail.com"
 	FROM_ADDRESS="@gmail.com"
 	SUBJECT="Long Running Process"
-
-echo ${BODY}| mail -s "$SUBJECT" -r $FROM_ADDRESS $TO_ADDRESS
+	echo ${BODY}| mail -s "$SUBJECT" -r $FROM_ADDRESS $TO_ADDRESS
 else
 	echo "No Long running Process found."
         
